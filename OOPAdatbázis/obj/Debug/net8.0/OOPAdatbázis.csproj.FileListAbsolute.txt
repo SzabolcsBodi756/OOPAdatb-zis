@@ -38,3 +38,4 @@ C:\Users\Bodisz\source\repos\OOPAdatbázis\OOPAdatbázis\obj\Debug\net8.0\refint
 C:\Users\Bodisz\source\repos\OOPAdatbázis\OOPAdatbázis\obj\Debug\net8.0\OOPAdatbázis.pdb
 C:\Users\Bodisz\source\repos\OOPAdatbázis\OOPAdatbázis\obj\Debug\net8.0\OOPAdatbázis.genruntimeconfig.cache
 C:\Users\Bodisz\source\repos\OOPAdatbázis\OOPAdatbázis\obj\Debug\net8.0\ref\OOPAdatbázis.dll
+C:\Users\Bodisz\source\repos\OOPAdatbázis\OOPAdatbázis\obj\Debug\net8.0\OOPAdatbázis.sourcelink.json

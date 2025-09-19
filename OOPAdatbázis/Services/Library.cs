@@ -19,7 +19,31 @@ namespace OOPAdatbázis.Services
 
         public object GetById(int id)
         {
-            throw new NotImplementedException();
+            Connect conn = new Connect("libary");
+
+            conn.Connection.Open();
+
+            string sql = "SELECT * FROM books WHERE id = @id ";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn.Connection);
+
+            cmd.Parameters.AddWithValue("@id", id);
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            dr.Read();
+
+            var record = new
+            {
+                id = dr.GetInt32("Id"),
+                title = dr.GetString("Title"),
+                author = dr.GetString("Author"),
+                releaseDate = dr.GetDateTime("RelesDate")
+            };
+
+            conn.Connection.Close();
+
+            return record;
         }
 
         public object UpdateItem(object modifiedItem)
