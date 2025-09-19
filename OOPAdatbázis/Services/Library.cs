@@ -2,6 +2,7 @@
 using OOPAdatbázis;
 using OOPAdatbázis.Services;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OOPAdatbázis.Services
 {
@@ -9,7 +10,31 @@ namespace OOPAdatbázis.Services
     {
         public object AddNewItem(object newRecord)
         {
-            throw new NotImplementedException();
+            Connect conn = new Connect("libary");
+
+            conn.Connection.Open();
+
+            string sql = "INSERT INTO books('Title', 'Author', 'RelesDate') VALUES (@title, @author, @releasedate)";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn.Connection);
+
+            var book = newRecord.GetType().GetProperties();
+
+            cmd.Parameters.AddWithValue("@title", book[0].Name);
+            cmd.Parameters.AddWithValue("@author", book[1].Name);
+            cmd.Parameters.AddWithValue("@releasedate", book[2].Name);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Connection.Close();
+
+            var result = new
+            {
+                message = "Sikeres felvétel",
+                result = newRecord
+            };
+
+            return result;
         }
 
         public object DeleteItem(int id)
